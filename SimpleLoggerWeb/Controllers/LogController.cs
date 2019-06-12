@@ -11,7 +11,7 @@ namespace SimpleLoggerWeb.Controllers
         private ActionResult getMessage(string message)
         {
             //return Json(new { message = message });
-            return Content(message);
+            return Content(string.Join("<br/>", message.Split(new[] { "\r\n" }, StringSplitOptions.None)));
         }
 
         public ActionResult GetLogger(string date = "")
@@ -44,7 +44,7 @@ namespace SimpleLoggerWeb.Controllers
                 return getMessage(ex.Message);
             }
         }
-        
+
 
     }
 }
